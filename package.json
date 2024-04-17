@@ -16,8 +16,10 @@
     ]
   },
   "dependencies": {
+    "@prismatic-io/prism": "^6.0.0-preview5",
     "@prismatic-io/spectral": "8.1.0-preview4",
-    "axios": "0.21.4"
+    "axios": "0.21.4",
+    "jq": "^1.7.2"
   },
   "devDependencies": {
     "@prismatic-io/eslint-config-spectral": "2.0.1",

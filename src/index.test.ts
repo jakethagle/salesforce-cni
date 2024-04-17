@@ -15,7 +15,7 @@ describe("Test sync records to salesforce", () => {
         },
       },
       configVars: {
-        sfdcOAuth: oauthConnection,
+        "Salesforce Connection": oauthConnection,
       },
     });
     expect(result?.data).toBeDefined();

@@ -5,7 +5,7 @@ import { queryOne } from "@/lib/query";
 import { updateRecord } from "@/lib/update";
 import { TriggerPayload, flow } from "@prismatic-io/spectral";
 
-const DEBUG = false;
+const DEBUG = true;
 
 interface SyncRecordToSalesforcePayload extends TriggerPayload {
   email: string;
@@ -28,23 +28,23 @@ export default flow<ConfigPages, SalesforceComponent>({
   },
   onExecution: async (context, params) => {
     const { logger, configVars } = context;
+
+    // Get the webhook trigger payload
     const triggerPayload = params.onTrigger.results.body
       .data as SyncRecordToSalesforcePayload;
 
+    // Validate that we have a salesforce connection
     if (!configVars?.["Salesforce Connection"]) {
       throw new Error("Missing connection configuration");
     }
 
-    if (DEBUG) {
-      logger.debug(`Action context: ${JSON.stringify(context)}`);
-      logger.debug(`Action params: ${JSON.stringify(params)}`);
-    }
-
+    // Check for an existing contact based on the trigger email value
     const existingContact = await queryOne(
       configVars?.["Salesforce Connection"],
       `SELECT Id, Name FROM Contact WHERE Email = '${triggerPayload.email}'`,
     );
 
+    //Create a new contact or update an existing one
     if (!existingContact) {
       await createRecord(configVars?.["Salesforce Connection"], "Contact", {
         ...triggerPayload,
@@ -60,6 +60,7 @@ export default flow<ConfigPages, SalesforceComponent>({
       );
     }
 
+    
     return {
       data: { success: true },
     };

@@ -11,7 +11,7 @@ describe("test create record", () => {
       {
         FirstName: "John",
         LastName: "Doe",
-        Email: "John.Doe@example.com",
+        Email: "another.person@test.example.com",
       },
     );
     console.log(id, success, errors);
