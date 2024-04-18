@@ -1,4 +1,4 @@
-import type { SalesforceComponent } from "@/components";
+import type { SalesforceComponent } from "@/types/components";
 import type { ConfigPages } from "@/configPages";
 import { flow } from "@prismatic-io/spectral";
 

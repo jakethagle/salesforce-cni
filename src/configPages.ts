@@ -2,7 +2,7 @@ import { configPage } from "@prismatic-io/spectral";
 import { sfdcOAuth } from "./connections";
 
 export const configPages = {
-  Connections: configPage({
+  "Connections": configPage({
     elements: {
       "Salesforce Connection": sfdcOAuth,
     },

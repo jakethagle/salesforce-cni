@@ -1,5 +1,5 @@
 import { createClient } from "@/client";
-import { QueryRecord, QueryResult } from "@/lib/types";
+import { QueryRecord, QueryResult } from "@/types/query";
 import { Connection } from "@prismatic-io/spectral";
 
 export async function queryOne(

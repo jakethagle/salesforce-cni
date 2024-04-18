@@ -1,4 +1,4 @@
-import type { SalesforceComponent } from "@/components";
+import type { SalesforceComponent } from "@/types/components";
 import { reference } from "@prismatic-io/spectral";
 
 export const sfdcOAuth = reference<SalesforceComponent>().connection({

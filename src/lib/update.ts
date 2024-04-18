@@ -1,5 +1,5 @@
 import { createClient } from "@/client";
-import { SalesforceResponse } from "@/lib/types";
+import { SalesforceResponse } from "@/types/query";
 import { Connection } from "@prismatic-io/spectral";
 
 export async function updateRecord(
