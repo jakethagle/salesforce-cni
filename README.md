@@ -2,7 +2,9 @@
 
 ## Getting Started
 - Install @prismatic-io/prism
-- npm install the packages
+`npm install -G @prismatic-io/prism`
+- Install and build the project
+`npm install && npm run build`
 
 
 ## Local Testing
@@ -17,4 +19,4 @@
 - Reconfigure the test runner instance and connect your Salesforce Account
 - Setup a test instance payload with the following payload
 `{"email": "test.person@example.com"}`
-- Click Save & Run Test
+- Click Save & Run Test or make a curl request to the integration flows test runner endpoint
